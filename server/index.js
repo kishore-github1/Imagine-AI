@@ -10,7 +10,7 @@ dotenv.config();
 
 const app = express();
 app.use(cors({
-    origin : ["https://deploy-mern-lw"],
+    origin : [""],
     methods : ["POST","GET"],
     credentials:true
 }));
