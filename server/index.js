@@ -9,14 +9,18 @@ import dalleRoutes from './routes/dalleRoutes.js';
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin : ["https://deploy-mern-lw"],
+    methods : ["POST","GET"],
+    credentials:true
+}));
 app.use(express.json({limit:'50mb'}));
 
 app.use('/api/v1/post', postRoutes);
 app.use('/api/v1/dalle', dalleRoutes);
 
 app.get('/' , async(req,res) => {
-    res.send('Hello from DAa');
+    res.send('Hello');
 })
 
 const startServer = async()=>{
