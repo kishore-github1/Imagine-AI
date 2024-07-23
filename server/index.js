@@ -10,7 +10,7 @@ dotenv.config();
 
 const app = express();
 app.use(cors({
-    origin : [""],
+    origin : ["https://imagine-ai-frontend.vercel.app"],
     methods : ["POST","GET"],
     credentials:true
 }));
