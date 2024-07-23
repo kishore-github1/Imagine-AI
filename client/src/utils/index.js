@@ -1,6 +1,6 @@
 import {surpriseMePrompts } from '../constants';
 
-import { saveAs } from 'file-saver';
+// import { saveAs } from 'file-saver';
 
 export function getRandomPrompts(prompt){
     const randomIndex = Math.floor(Math.random()*surpriseMePrompts.length);
@@ -11,6 +11,6 @@ export function getRandomPrompts(prompt){
     return randomPrompt;
 }
 
-export async function downloadImage(_id,photo){
-    saveAs(photo,`download-${_id}.jpg`);
-}
+// export async function downloadImage(_id,photo){
+//     saveAs(photo,`download-${_id}.jpg`);
+// }
