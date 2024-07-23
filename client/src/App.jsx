@@ -9,7 +9,7 @@ function App() {
 
   return (
     // <div> Hi</div>
-    <BrowserRouter>
+    <BrowserRouter basename="/">
     <header className="w-full flex justify-between items-center bg-white sm:px-8 px-4 py-4 border-b border-b-[#e6ebf4]">
       <Link to="/">
         <img src={logo} alt="logo" className="w-24 h-24 object-contain" />
