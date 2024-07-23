@@ -9,7 +9,15 @@ import dalleRoutes from './routes/dalleRoutes.js';
 dotenv.config();
 
 const app = express();
+<<<<<<< HEAD
 app.use(cors());
+=======
+app.use(cors({
+    origin : ["https://imagine-ai-frontend.vercel.app"],
+    methods : ["POST","GET"],
+    credentials:true
+}));
+>>>>>>> 0e522db1e75b33ffa60104beb1b73283f2f0add2
 app.use(express.json({limit:'50mb'}));
 
 app.use('/api/v1/post', postRoutes);
