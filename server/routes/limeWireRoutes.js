@@ -1,6 +1,7 @@
 import express from 'express';
 import * as dotenv from 'dotenv';
 import fetch from 'node-fetch';
+import { authenticateJwt } from '../middleware/auth.js';
 
 
 dotenv.config();
@@ -8,7 +9,7 @@ dotenv.config();
 const router = express.Router();
 
 const apiKey = process.env.LIMEWIRE_API_KEY;
-router.route('/').post(async(req,res) =>{
+router.route('/').post(authenticateJwt,async(req,res) =>{
     try{
         const {prompt} = req.body;
         

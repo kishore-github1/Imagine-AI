@@ -19,15 +19,20 @@ const CreatePost = () => {
     if(form.prompt){
       try {
         setGeneratingImg(true);
-        const response = await fetch('https://imagine-ai-server.vercel.app/api/v1/dalle',{
+        const response = await fetch('http://localhost:8000/api/limeWire',{
           method:'POST',
           headers: {
             'Content-Type': 'application/json',
+            
+            "Authorization": "Bearer " + localStorage.getItem("token")
+         
           },
           body: JSON.stringify({ prompt : form.prompt }),
         })
 
         const data = await response.json();
+        console.log(data)
+        if(data.message == "Please Login") alert("Please Login")
         
         setForm({...form, photo: data.imageUrl })
 
@@ -51,10 +56,11 @@ const CreatePost = () => {
       setLoading(true);
 
       try {
-        const response = await fetch('https://imagine-ai-server.vercel.app/api/v1/post', {
+        const response = await fetch('http://localhost:8000/api/users/addPostToUser', {
           method : 'POST',
           headers: {
             'Content-Type' : 'application/json',
+            "Authorization": "Bearer " + localStorage.getItem("token")
           },
           body : JSON.stringify(form)
         })
@@ -142,6 +148,7 @@ const CreatePost = () => {
           >
             {generatingImg ? 'Generating...' : 'Generate'}
           </button>
+          😔The API has discontinued its free tier
         </div>
         <div className="mt-10">
           <p className="mt-2 text-[#666e75] text-[14px]"> Showcase your talent to our community!!😊</p>
